@@ -24,4 +24,4 @@ $ kubectl apply -f ./k8s/prometheus-operator/
 $ kubectl apply -f ./k8s/avalanche-standalone/
 $ kubectl -n apps port-forward prometheus-prometheus-standalone-local-0 9090
 ```
-##TODO GRAFANA remote m3db metrics
+## TODO GRAFANA remote m3db metrics
