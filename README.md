@@ -22,6 +22,11 @@ Please execute in the following order
 ```sh
 $ kubectl apply -f ./k8s/prometheus-operator/
 $ kubectl apply -f ./k8s/avalanche-standalone/
+$ kubectl apply -f ./k8s/prometheus-standalone-local/
 $ kubectl -n apps port-forward prometheus-prometheus-standalone-local-0 9090
 ```
-## TODO GRAFANA remote m3db metrics
+Targets should be populated and visible avalanche via Service Discovery.
+
+## TODO M3DB k8s descriptors
+## TODO k8s prometheus-standalone-remote on top of m3db remote
+## TODO Grafana remote m3db metrics with 2 data sources
