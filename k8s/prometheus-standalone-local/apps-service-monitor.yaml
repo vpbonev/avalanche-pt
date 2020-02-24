@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  namespace: apps
+  labels:
+    prometheus: prometheus-standalone-local
+    k8s-app: apps
+  name: apps
+spec:
+  jobLabel: apps
+  selector:
+    matchLabels:
+      app: avalanche
+  namespaceSelector:
+    # Targeting only our apps namespace in which avalanche exposes metrics
+    matchNames:
+    - apps
+  endpoints:
+  - port: http-avalanche
+    interval: 30s

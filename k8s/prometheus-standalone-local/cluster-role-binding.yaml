@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  namespace: apps
+  name: prometheus-standalone-local
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus-standalone-local
+subjects:
+- kind: ServiceAccount
+  name: prometheus-standalone-local
+  namespace: apps

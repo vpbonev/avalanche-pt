@@ -1,0 +1,20 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  namespace: apps
+  labels:
+    prometheus: k8s
+  name: prometheus-standalone-local
+spec:
+  externalLabels:
+    cluster: docker-desktop
+  replicas: 1
+  version: v2.13.1
+  serviceAccountName: prometheus-standalone-local
+  serviceMonitorSelector:
+    matchExpressions:
+    - key: k8s-app
+      operator: In
+      # Match our apps namespace where avalanche is running and exposing metrics
+      values:
+      - apps

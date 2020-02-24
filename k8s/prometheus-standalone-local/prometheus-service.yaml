@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: apps
+  labels:
+    prometheus: prometheus-standalone-local
+  name: prometheus-service
+spec:
+  ports:
+  - protocol: TCP
+    port: 9090
+    targetPort: 9090
+  selector:
+    prometheus: prometheus-standalone-local

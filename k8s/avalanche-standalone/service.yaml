@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: apps
+  labels:
+    app: avalanche
+  name: avalanche-svc
+spec:
+  # label keys and values that must match in order to receive traffic for this service
+  selector:
+    app: avalanche
+  ports:
+    # the port that this service should serve on
+    - protocol: TCP
+      port: 9001
+      targetPort: 9001
+      name: http-avalanche
+  type: ClusterIP
+  clusterIP: None
